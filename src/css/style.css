@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    list-style: none;
+}
+
+body {
+    background-color: #2362CC;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container h1 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 60px;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+
+}
+
+.todoInput {
+    background-color: white;
+    max-width: 500px;
+    width: 90%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.todoInput input {
+    height: 100%;
+    border: none;
+    outline: none;
+    width: 90%;
+}
+
+.todoInput #btn-add {
+    border: none;
+    background-color: none;
+    cursor: pointer;
+}
+
+.todoInput #btn-add i {
+    font-size: 35px;
+    background-color: white;
+    color: #2362CC;
+}
+
+.todoInput #btn-add:active {
+    transform: scale(0.95);
+}
+
+.todoResult {
+    margin-top: 20px;
+    max-width: 500px;
+    width: 90%;
+    height: 200px;
+    overflow: auto;
+}
+
+.todoResult ul {
+    width: 100%;
+    height: 100%;
+}
+
+.todoResult ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.todoResult ul li .btn-remove {
+    background-color: red;
+    border: none;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.taskChecked {
+    text-decoration: line-through;
+    font-style: italic;
+}
