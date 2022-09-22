@@ -4,6 +4,10 @@ let taskList = document.querySelector('ul')
 
 //função para adicionar as tarefas
 function addTask(input) {
+    if(input.value === '') {
+        alert('Preencha o campo com alguma tarefa.')
+        return
+    }
     let task =  `
                        <li class="task"> 
                             
