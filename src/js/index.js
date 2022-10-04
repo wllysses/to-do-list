@@ -1,6 +1,5 @@
 let inputAdd = document.getElementById('inputAdd')
 let btnAdd = document.getElementById('btn-add')
-let taskList = document.querySelector('ul')
 
 //função para adicionar as tarefas
 function addTask(input) {
@@ -9,16 +8,13 @@ function addTask(input) {
         return
     }
     let task =  `
-                       <li class="task"> 
-                            
-                            <p>${input.value}</p>
-
-                            <button 
-                            class="btn-remove"
-                            >
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </li>
+                    <li class="task"> 
+                        <p>${input.value}</p>
+                        <input type="date" name="taskDate" id="taskDate">
+                        <button class="btn-remove">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </li>
                 `
     
     document.querySelector('ul').innerHTML += task
@@ -32,26 +28,17 @@ function addTask(input) {
 function checkTask() {
     let tasks = document.querySelectorAll('p')
     tasks.forEach(task => {
-        task.addEventListener('click', (e) => {
-            e.target.classList.toggle('taskChecked')
+        task.addEventListener('click', () => {
+            task.classList.toggle('taskChecked')
         })
     })
 }
 
 function removeTask() {
-
-    // let btnRemove = document.getElementsByClassName("btn-remove");
-    // for (let i = 0; i < btnRemove.length; i++) {
-    //     btnRemove[i].onclick = function() {
-    //         let task = this.parentElement;
-    //         console.log(task)
-    //     }
-    // }
-
     let btnRemove = document.querySelectorAll('.btn-remove')
     btnRemove.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            let task = e.composedPath()[2]
+        btn.addEventListener('click', () => {
+            let task = btn.parentElement
             task.remove()
         })
     })

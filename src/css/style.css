@@ -73,12 +73,7 @@ body {
     overflow: auto;
 }
 
-.todoResult ul {
-    width: 100%;
-    height: 100%;
-}
-
-.todoResult ul li {
+.todoResult li {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -90,7 +85,17 @@ body {
     font-weight: 700;
 }
 
-.todoResult ul li .btn-remove {
+.todoResult #taskDate {
+    border: none;
+    background-color: #2362CC;
+    color: white;
+    font-weight: 700;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.todoResult li .btn-remove {
     background-color: red;
     border: none;
     padding: 5px;
