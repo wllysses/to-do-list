@@ -11,7 +11,7 @@ Projeto criado para a disciplina de Programação Web ministrada pelo Prof. Edka
 
 - [@wllysses](https://www.github.com/wllysses)
 - [@petruspierre](https://www.github.com/petruspierre)
-- [@elaine](https://www.github.com/elaine)
+- [@elainemedeiros](https://www.github.com/elainemedeiros)
 
 
 ## Tecnologias utilizadas
