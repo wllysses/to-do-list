@@ -40,8 +40,7 @@ function checkTask() {
             }
         })
     })
-}    
-
+}  
 
 function removeTask() {
     let btnRemove = document.querySelectorAll('.btn-remove')
@@ -52,7 +51,6 @@ function removeTask() {
         })
     })
 }
-
 
 btnAdd.addEventListener('click', () => {
     addTask(inputAdd)
