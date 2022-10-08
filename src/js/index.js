@@ -22,7 +22,6 @@ function addTask(input) {
     document.querySelector('ul').innerHTML += task
     input.value = ''
 
-    checado = false
     //checkTask()
     removeTask()
 
@@ -30,20 +29,15 @@ function addTask(input) {
 
 function checkTask() {
     debugger
-    if(document.getElementById('check').checked){
-        let tasks = document.querySelectorAll('p')
+    let tasks = document.querySelectorAll('p')
         tasks.forEach(task => {
-            task.classList.toggle('taskChecked')
+            if(document.getElementById('check').checked){
+                task.classList.toggle('taskChecked')
+            } else {
+                    task.classList.toggle('taskUnchecked')
+            }
         })
-    } else {
-        let tasks = document.querySelectorAll('p')
-        tasks.forEach(task => {
-            task.classList.toggle('taskUnchecked')
-        
-        })
-    }
-}    
-
+}
 
 function removeTask() {
     let btnRemove = document.querySelectorAll('.btn-remove')
