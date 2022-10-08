@@ -14,10 +14,10 @@ Projeto criado para a disciplina de Programação Web ministrada pelo Prof. Edka
 - [@elainemedeiros](https://www.github.com/elainemedeiros)
 
 
-## Tecnologias utilizadas
+## 💻 Tecnologias utilizadas
 HTML, CSS e Javascript
 
 
-## Links
+## 🔗 Links
 [Repositório](https://github.com/wllysses/to-do-list)
 [Deploy](https://wllysses.github.io/to-do-list/)
