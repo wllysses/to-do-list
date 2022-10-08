@@ -9,9 +9,11 @@ function addTask(input) {
         return
     }
     let task =  `
-                    <li class="task"> 
-                        <input type="checkbox" onclick="checkTask()" id="check">
-                        <p>${input.value}</p>
+                    <li class="task">
+                        <div class="check">
+                            <input type="checkbox" id="check">
+                            <p>${input.value}</p>
+                        </div>
                         <input type="date" name="taskDate" id="taskDate">
                         <button class="btn-remove">
                             <i class="fa-solid fa-trash"></i>
@@ -22,26 +24,22 @@ function addTask(input) {
     document.querySelector('ul').innerHTML += task
     input.value = ''
 
-    checado = false
-    //checkTask()
+    checkTask()
     removeTask()
-
 }
 
 function checkTask() {
-    debugger
-    if(document.getElementById('check').checked){
-        let tasks = document.querySelectorAll('p')
-        tasks.forEach(task => {
-            task.classList.toggle('taskChecked')
+    let checkBox = document.querySelectorAll('#check')
+    checkBox.forEach(check => {
+        check.addEventListener('click', (e) => {
+            let taskText = e.target.nextElementSibling
+            if(check.checked) {
+                taskText.classList.add('taskChecked')
+            } else {
+                taskText.classList.remove('taskChecked')
+            }
         })
-    } else {
-        let tasks = document.querySelectorAll('p')
-        tasks.forEach(task => {
-            task.classList.toggle('taskUnchecked')
-        
-        })
-    }
+    })
 }    
 
 
@@ -53,7 +51,6 @@ function removeTask() {
             task.remove()
         })
     })
-
 }
 
 
