@@ -107,3 +107,8 @@ body {
     text-decoration: line-through;
     font-style: italic;
 }
+
+.taskUnchecked {
+    text-decoration: none;
+    font-style: normal;
+}

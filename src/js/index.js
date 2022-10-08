@@ -1,6 +1,7 @@
 let inputAdd = document.getElementById('inputAdd')
 let btnAdd = document.getElementById('btn-add')
 
+
 //função para adicionar as tarefas
 function addTask(input) {
     if(input.value === '') {
@@ -9,6 +10,7 @@ function addTask(input) {
     }
     let task =  `
                     <li class="task"> 
+                        <input type="checkbox" onclick="checkTask()" id="check">
                         <p>${input.value}</p>
                         <input type="date" name="taskDate" id="taskDate">
                         <button class="btn-remove">
@@ -20,19 +22,28 @@ function addTask(input) {
     document.querySelector('ul').innerHTML += task
     input.value = ''
 
-    checkTask()
+    checado = false
+    //checkTask()
     removeTask()
 
 }
 
 function checkTask() {
-    let tasks = document.querySelectorAll('p')
-    tasks.forEach(task => {
-        task.addEventListener('click', () => {
+    debugger
+    if(document.getElementById('check').checked){
+        let tasks = document.querySelectorAll('p')
+        tasks.forEach(task => {
             task.classList.toggle('taskChecked')
         })
-    })
-}
+    } else {
+        let tasks = document.querySelectorAll('p')
+        tasks.forEach(task => {
+            task.classList.toggle('taskUnchecked')
+        
+        })
+    }
+}    
+
 
 function removeTask() {
     let btnRemove = document.querySelectorAll('.btn-remove')
