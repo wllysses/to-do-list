@@ -8,10 +8,9 @@ Projeto criado para a disciplina de Programação Web ministrada pelo Prof. Edka
 
 
 ## 💼 Autores
-
-- [@wllysses](https://www.github.com/wllysses)
-- [@petruspierre](https://www.github.com/petruspierre)
 - [@elainemedeiros](https://www.github.com/elainemedeiros)
+- [@petruspierre](https://www.github.com/petruspierre)
+- [@wllysses](https://www.github.com/wllysses)
 
 
 ## 💻 Tecnologias utilizadas
