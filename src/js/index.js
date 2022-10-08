@@ -14,10 +14,12 @@ function addTask(input) {
                             <input type="checkbox" id="check">
                             <p>${input.value}</p>
                         </div>
-                        <input type="date" name="taskDate" id="taskDate">
-                        <button class="btn-remove">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
+                        <div class="buttons">
+                            <input type="date" name="taskDate" id="taskDate">
+                            <button class="btn-remove">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
                     </li>
                 `
     
