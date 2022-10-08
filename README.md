@@ -7,7 +7,7 @@ Projeto criado para a disciplina de Programação Web ministrada pelo Prof. Edka
 
 
 
-## Autores
+## 💼 Autores
 
 - [@wllysses](https://www.github.com/wllysses)
 - [@petruspierre](https://www.github.com/petruspierre)
