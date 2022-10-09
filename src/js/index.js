@@ -11,7 +11,7 @@ function addTask(input) {
     let task =  `
                     <li class="task">
                         <div class="check">
-                            <input type="checkbox" id="check">
+                            <input type="checkbox">
                             <p>${input.value}</p>
                         </div>
                         <div class="buttons">
@@ -32,7 +32,7 @@ function addTask(input) {
 
 //função para marcar as tarefas como concluidas
 function checkTask() {
-    let checkBox = document.querySelectorAll('#check')
+    let checkBox = document.querySelectorAll('.check > input')
     checkBox.forEach(check => {
         console.log(check)
         check.addEventListener('click', (e) => {
