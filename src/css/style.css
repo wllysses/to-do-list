@@ -95,6 +95,8 @@ body {
     flex-wrap: wrap;
     width: 100%;
     gap: 10px;
+
+    transition: opacity 0.2s ease-out;
     animation: fadeInAndMoveDown 0.25s ease-out;
 }
 

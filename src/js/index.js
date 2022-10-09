@@ -1,7 +1,6 @@
 let inputAdd = document.getElementById('inputAdd')
 let btnAdd = document.getElementById('btn-add')
 
-
 //função para adicionar as tarefas
 function addTask(input) {
     if(input.value === '') {
@@ -12,12 +11,12 @@ function addTask(input) {
     task.classList.add('task')
     task.innerHTML = `
                     <div class="check">
-                        <input type="checkbox">
+                        <input type="checkbox" onClick="checkTask(this)">
                         <p>${input.value}</p>
                     </div>
                     <div class="buttons">
                         <input type="date" name="taskDate" class="taskDate">
-                        <button class="btn-remove">
+                        <button class="btn-remove" onClick="removeTask(this)">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </div>
@@ -25,37 +24,26 @@ function addTask(input) {
     
     document.querySelector('.todoResult').appendChild(task)
     input.value = ''
-
-    checkTask()
-    removeTask()
 }
 
 //função para marcar as tarefas como concluidas
-function checkTask() {
-    let checkBox = document.querySelectorAll('.check > input')
-    checkBox.forEach(check => {
-        console.log(check)
-        check.addEventListener('click', (e) => {
-            let taskText = e.target.nextElementSibling
-            if(check.checked) {
-                taskText.classList.add('taskChecked')
-                check.setAttribute('checked', 'checked')
-            } else {
-                taskText.classList.remove('taskChecked')
-                check.removeAttribute('checked')
-            }
-        })
-    })
+function checkTask(check) {
+    let taskText = check.nextElementSibling
+    if(check.checked) {
+        taskText.classList.add('taskChecked')
+        check.setAttribute('checked', 'checked')
+    } else {
+        taskText.classList.remove('taskChecked')
+        check.removeAttribute('checked')
+    }
 }
 
 //função para remover tarefas
-function removeTask() {
-    let btnRemove = document.querySelectorAll('.btn-remove')
-    btnRemove.forEach(btn => {
-        btn.addEventListener('click', () => {
-            let task = btn.closest('li')
-            task.remove()
-        })
+function removeTask(button) {
+    let task = button.closest('.task')
+    task.style.opacity = '0'
+    task.addEventListener('transitionend', () => {
+        task.remove()
     })
 }
 
