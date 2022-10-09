@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+@keyframes fadeInAndMoveDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -19,6 +30,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 100px 0;
 }
 
 .container h1 {
@@ -27,7 +39,6 @@ body {
     font-size: 60px;
     font-family: 'Bebas Neue', cursive;
     letter-spacing: 2px;
-
 }
 
 .todoInput {
@@ -66,26 +77,48 @@ body {
 }
 
 .todoResult {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     margin-top: 20px;
     max-width: 500px;
     width: 90%;
-    height: 200px;
-    overflow: auto;
+    gap: 5px;
+
+    max-height: 0;
+    transition: max-height 0.25s;
 }
 
-.todoResult li {
+.todoResult .task {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    margin-bottom: 5px;
     background-color: white;
     border-radius: 5px;
-    cursor: pointer;
     font-weight: 700;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+
+    transition: opacity 0.2s ease-out, background-color 0.2s;
+    animation: fadeInAndMoveDown 0.25s ease-out;
 }
 
-.todoResult #taskDate {
+.todoResult .task[state="done"] {
+    background-color: green;
+    color: white;
+}
+
+.todoResult .task[state="late"] {
+    background-color: #F08080;
+}
+
+.todoResult .task[state="late"] .taskDate {
+    background-color: red;
+}
+
+.todoResult .taskDate {
     border: none;
     background-color: #2362CC;
     color: white;
@@ -93,14 +126,42 @@ body {
     padding: 5px;
     border-radius: 5px;
     outline: none;
+    color-scheme: dark;
+
+    transition: background-color 0.2s;
 }
 
 .todoResult li .btn-remove {
     background-color: red;
     border: none;
+    border-radius: 5px;
     padding: 5px;
     color: white;
     cursor: pointer;
+
+    transition: opacity 0.2s;
+}
+
+.todoResult li .btn-remove:hover {
+    opacity: 0.7;
+}
+
+.todoResult .task .check {
+    width: 65%;
+    display: flex;
+    gap: 5px;
+}
+
+.todoResult .task .buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.todoResult .task .check p {
+    width: 100%;
+    max-width: 295px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .taskChecked {
