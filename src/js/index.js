@@ -12,7 +12,7 @@ function addTask(input) {
     task.innerHTML = `
                     <div class="check">
                         <input type="checkbox" onClick="checkTask(this)">
-                        <p>${input.value}</p>
+                        <p title="${input.value}">${input.value}</p>
                     </div>
                     <div class="buttons">
                         <input type="date" name="taskDate" class="taskDate">
