@@ -30,34 +30,41 @@ function addTask(input) {
     removeTask()
 }
 
+//função para marcar as tarefas como concluidas
 function checkTask() {
     let checkBox = document.querySelectorAll('#check')
     checkBox.forEach(check => {
+        console.log(check)
         check.addEventListener('click', (e) => {
             let taskText = e.target.nextElementSibling
             if(check.checked) {
                 taskText.classList.add('taskChecked')
+                check.setAttribute('checked', 'checked')
             } else {
                 taskText.classList.remove('taskChecked')
+                check.removeAttribute('checked')
             }
         })
     })
-}  
+}
 
+//função para remover tarefas
 function removeTask() {
     let btnRemove = document.querySelectorAll('.btn-remove')
     btnRemove.forEach(btn => {
         btn.addEventListener('click', () => {
-            let task = btn.parentElement
+            let task = btn.closest('li')
             task.remove()
         })
     })
 }
 
+//evento no botão para adicionar as tarefas
 btnAdd.addEventListener('click', () => {
     addTask(inputAdd)
 })
 
+//evento para adicionar as tarefas ao apertar a tecla ENTER
 inputAdd.addEventListener('keyup', (e) => {
     let keyEnter = e.which || e.keyCode
 
