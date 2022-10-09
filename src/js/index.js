@@ -1,6 +1,7 @@
 let inputAdd = document.getElementById('inputAdd')
 let btnAdd = document.getElementById('btn-add')
 
+
 //função para adicionar as tarefas
 function addTask(input) {
     if(input.value === '') {
@@ -8,12 +9,17 @@ function addTask(input) {
         return
     }
     let task =  `
-                    <li class="task"> 
-                        <p>${input.value}</p>
-                        <input type="date" name="taskDate" id="taskDate">
-                        <button class="btn-remove">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
+                    <li class="task">
+                        <div class="check">
+                            <input type="checkbox" id="check">
+                            <p>${input.value}</p>
+                        </div>
+                        <div class="buttons">
+                            <input type="date" name="taskDate" id="taskDate">
+                            <button class="btn-remove">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
                     </li>
                 `
     
@@ -22,34 +28,43 @@ function addTask(input) {
 
     checkTask()
     removeTask()
-
 }
 
+//função para marcar as tarefas como concluidas
 function checkTask() {
-    let tasks = document.querySelectorAll('p')
-    tasks.forEach(task => {
-        task.addEventListener('click', () => {
-            task.classList.toggle('taskChecked')
+    let checkBox = document.querySelectorAll('#check')
+    checkBox.forEach(check => {
+        console.log(check)
+        check.addEventListener('click', (e) => {
+            let taskText = e.target.nextElementSibling
+            if(check.checked) {
+                taskText.classList.add('taskChecked')
+                check.setAttribute('checked', 'checked')
+            } else {
+                taskText.classList.remove('taskChecked')
+                check.removeAttribute('checked')
+            }
         })
     })
 }
 
+//função para remover tarefas
 function removeTask() {
     let btnRemove = document.querySelectorAll('.btn-remove')
     btnRemove.forEach(btn => {
         btn.addEventListener('click', () => {
-            let task = btn.parentElement
+            let task = btn.closest('li')
             task.remove()
         })
     })
-
 }
 
-
+//evento no botão para adicionar as tarefas
 btnAdd.addEventListener('click', () => {
     addTask(inputAdd)
 })
 
+//evento para adicionar as tarefas ao apertar a tecla ENTER
 inputAdd.addEventListener('keyup', (e) => {
     let keyEnter = e.which || e.keyCode
 

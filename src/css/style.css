@@ -83,6 +83,9 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-weight: 700;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
 }
 
 .todoResult #taskDate {
@@ -101,6 +104,21 @@ body {
     padding: 5px;
     color: white;
     cursor: pointer;
+}
+
+.todoResult .task .check {
+    width: 65%;
+    display: flex;
+    gap: 5px;
+}
+
+.todoResult .task .buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.todoResult .task .check p {
+    width: 100%;
 }
 
 .taskChecked {
