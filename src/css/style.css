@@ -101,6 +101,7 @@ body {
 .todoResult li .btn-remove {
     background-color: red;
     border: none;
+    border-radius: 5px;
     padding: 5px;
     color: white;
     cursor: pointer;
