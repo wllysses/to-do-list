@@ -22,7 +22,9 @@ function addTask(input) {
                     </div>
                     `
     
-    document.querySelector('.todoResult').appendChild(task)
+    let taskList = document.querySelector('.todoResult')
+    taskList.appendChild(task)
+    taskList.style.maxHeight = `${taskList.children.length * 47.5 + 20}px`
     input.value = ''
 }
 
@@ -41,9 +43,12 @@ function checkTask(check) {
 //função para remover tarefas
 function removeTask(button) {
     let task = button.closest('.task')
+    let taskList = document.querySelector('.todoResult')
+
     task.style.opacity = '0'
     task.addEventListener('transitionend', () => {
         task.remove()
+        taskList.style.maxHeight = `${taskList.children.length * 47.5 + 20}px`
     })
 }
 
