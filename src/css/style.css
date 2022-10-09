@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+@keyframes fadeInAndMoveDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -86,6 +97,7 @@ body {
     flex-wrap: wrap;
     width: 100%;
     gap: 10px;
+    animation: fadeInAndMoveDown 0.25s ease-out;
 }
 
 .todoResult #taskDate {
