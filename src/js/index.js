@@ -8,22 +8,22 @@ function addTask(input) {
         alert('Preencha o campo com alguma tarefa.')
         return
     }
-    let task =  `
-                    <li class="task">
-                        <div class="check">
-                            <input type="checkbox">
-                            <p>${input.value}</p>
-                        </div>
-                        <div class="buttons">
-                            <input type="date" name="taskDate" id="taskDate">
-                            <button class="btn-remove">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
-                    </li>
-                `
+    let task = document.createElement('li');
+    task.classList.add('task')
+    task.innerHTML = `
+                    <div class="check">
+                        <input type="checkbox">
+                        <p>${input.value}</p>
+                    </div>
+                    <div class="buttons">
+                        <input type="date" name="taskDate" class="taskDate">
+                        <button class="btn-remove">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                    `
     
-    document.querySelector('ul').innerHTML += task
+    document.querySelector('.todoResult').appendChild(task)
     input.value = ''
 
     checkTask()
