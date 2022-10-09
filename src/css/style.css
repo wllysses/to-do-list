@@ -89,7 +89,7 @@ body {
     transition: max-height 0.25s;
 }
 
-.todoResult li {
+.todoResult .task {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -101,8 +101,21 @@ body {
     width: 100%;
     gap: 10px;
 
-    transition: opacity 0.2s ease-out;
+    transition: opacity 0.2s ease-out, background-color 0.2s;
     animation: fadeInAndMoveDown 0.25s ease-out;
+}
+
+.todoResult .task[state="done"] {
+    background-color: green;
+    color: white;
+}
+
+.todoResult .task[state="late"] {
+    background-color: #F08080;
+}
+
+.todoResult .task[state="late"] .taskDate {
+    background-color: red;
 }
 
 .todoResult .taskDate {
@@ -114,6 +127,8 @@ body {
     border-radius: 5px;
     outline: none;
     color-scheme: dark;
+
+    transition: background-color 0.2s;
 }
 
 .todoResult li .btn-remove {
